@@ -13,4 +13,9 @@ body {
     width: calc(100% / 10);
     aspect-ratio: 1/1;
     border: 3px solid white;
+    color: white;
+}
+
+.clicked_cell {
+    background-color: blue;
 }

@@ -26,32 +26,37 @@ let container = document.querySelector('.container');
 let cellsList = document.querySelector('cell');
 
 //ogni cella ha un numero progressivo da 1 a 100
-let numberList = [];
-for (i = 0; i < numberList.length; i++) {
-    let number = numberList[i];
-    console.log(number);
+
+for (i = 0; i <= totalCells; i++) {
+    //let number = numberList[i];
+    console.log(i);
 }
-let cellString = `<div class="cell">${number}</div>`;
+
 
 //al click deve essere creata la griglia
 //seleziono il bottone dal DOM
 let buttonEl = document.querySelector('.btn');
 
 buttonEl.addEventListener('click', function () {
+
     //creo la funzione con i segnaposto che poi passeranno le variabili nella funzione stessa
-    cellGenerator(totalCells, container, cellString);
+    cellGenerator(totalCells, container);
 
-    function cellGenerator(maxCells, containerEl, singleCell) {
-        for (let i = 0; i < totalCells; i++) {
+    //recupero la classe che cambia colore alla cella
+    const clickedCell = document.querySelector('.clicked_cell');
 
-            //aggiungo al DOM la stringa dellea cella
-            containerEl.innerHTML += singleCell;
-
-        }
-    }
 })
 
+function cellGenerator(maxCells, containerEl) {
 
+    for (let i = 1; i <= maxCells; i++) {
+        const cellString = `<div class="cell">${i}</div>`;
+        //aggiungo al DOM la stringa dellea cella
+        containerEl.innerHTML += cellString;
+
+    }
+
+}
 
 
 //con un ciclo for scorro le caselle per creare il click alla casella singola
