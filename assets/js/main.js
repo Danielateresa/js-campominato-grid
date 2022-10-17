@@ -50,10 +50,14 @@ buttonEl.addEventListener('click', function () {
 function cellGenerator(maxCells, containerEl) {
 
     for (let i = 1; i <= maxCells; i++) {
-        const cellString = `<div class="cell">${i}</div>`;
-        //aggiungo al DOM la stringa dellea cella
-        containerEl.innerHTML += cellString;
 
+        //aggiungo al DOM la stringa dellea cella
+        const cellString = document.createElement('div');
+        cellString.classList.add('cell');
+        cellString.insertAdjacentHTML('beforeend', i);
+        console.log(cellString);
+        containerEl.insertAdjacentElement('beforeend', cellString);
+        /* `<div class="cell">${i}</div>`; */
     }
 
 }
