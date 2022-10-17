@@ -19,13 +19,19 @@ Ci saranno quindi 10 caselle per ognuna delle 10 righe.
 //delle carìvariabili con il numero totale delle caselle, 
 //la stringa con i tag che comporanno la cella singola, 
 let totalCells = 100;
-let cellString = '<div class="cell"></div>';
 
 //seleziono il container dal DOM
 let container = document.querySelector('.container');
 //seleziono le celle dal DOM
 let cellsList = document.querySelector('cell');
 
+//ogni cella ha un numero progressivo da 1 a 100
+let numberList = [];
+for (i = 0; i < numberList.length; i++) {
+    let number = numberList[i];
+    console.log(number);
+}
+let cellString = `<div class="cell">${number}</div>`;
 
 //al click deve essere creata la griglia
 //seleziono il bottone dal DOM
@@ -44,6 +50,8 @@ buttonEl.addEventListener('click', function () {
         }
     }
 })
+
+
 
 
 //con un ciclo for scorro le caselle per creare il click alla casella singola
