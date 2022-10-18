@@ -23,14 +23,11 @@ let totalCells = 100;
 //seleziono il container dal DOM
 let container = document.querySelector('.container');
 //seleziono le celle dal DOM
-let cellsList = document.querySelector('cell');
+
 
 //ogni cella ha un numero progressivo da 1 a 100
 
-for (i = 0; i <= totalCells; i++) {
-    //let number = numberList[i];
-    console.log(i);
-}
+
 
 
 //al click deve essere creata la griglia
@@ -39,27 +36,53 @@ let buttonEl = document.querySelector('.btn');
 
 buttonEl.addEventListener('click', function () {
 
-    //creo la funzione con i segnaposto che poi passeranno le variabili nella funzione stessa
-    cellGenerator(totalCells, container);
 
-    //recupero la classe che cambia colore alla cella
-    const clickedCell = document.querySelector('.clicked_cell');
+    //loop per creare le celle che mi servono(100)
+    for (i = 1; i <= totalCells; i++) {
+        //let number = numberList[i];
+        //console.log(i);
+        //evoco la funzione con i segnaposto che poi passeranno le variabili nella funzione stessa
+        cellGenerator(container);
+
+    }
+    clickOnCell(totalCells)
+    let cellsList = document.querySelectorAll('.cell');
+    cellsList.addEventListener('click', function () {
+
+
+        console.log('ho cliccato sulla cella');
+    })
+
 
 })
 
-function cellGenerator(maxCells, containerEl) {
+//la funzione ha il compito di creare la cella
+function cellGenerator(containerEl) {
 
-    for (let i = 1; i <= maxCells; i++) {
 
-        //aggiungo al DOM la stringa dellea cella
-        const cellString = document.createElement('div');
-        cellString.classList.add('cell');
-        cellString.insertAdjacentHTML('beforeend', i);
-        console.log(cellString);
-        containerEl.insertAdjacentElement('beforeend', cellString);
-        /* `<div class="cell">${i}</div>`; */
+    //aggiungo al DOM la stringa dellea cella
+    const cellString = document.createElement('div');
+    //assegno la classe al div creato
+    cellString.classList.add('cell');
+    //aggiungo i numeri nelle celle
+    cellString.insertAdjacentHTML('beforeend', i);
+    //console.log(cellString);
+    //inserisco le celle nel container
+    containerEl.insertAdjacentElement('beforeend', cellString);
+    return cellString
+
+    //la stringa era precedentemente così scirtta `<div class="cell">${i}</div>`; ma questo metodo non permette di asssegnare metodi
+}
+
+//creo il click sulla singola cella
+//click su cosa?
+function clickOnCell(totalCells) {
+    for (let i = 0; i < totalCells.length; i++) {
+        let cell = totalCells[i];
+        console.log(cell);
+
+
     }
-
 }
 
 
