@@ -21,10 +21,25 @@
 
     <body>
         <main class="site_main m-5">
-            <button class="btn ms-3 text-white border-light rounded-5">Genera
-                griglia di
-                gioco</button>
-            <!-- button -->
+            <div class="interactions">
+                <button class="btn ms-3 text-white border-light rounded-5">Genera
+                    griglia di gioco
+                </button>
+                <!-- button -->
+
+
+                <label class="ms-5 p-2 fw-bold bg-light"
+                    for="level_selector">
+                    Scegli il livello di difficoltà
+                </label>
+                <select class="cells_number p-2" name="level_selector"
+                    id="level_selector">
+                    <option value="100">100</option>
+                    <option value="81">81</option>
+                    <option value="49">49</option>
+                </select>
+            </div>
+            <!-- select -->
 
             <div class="container">
                 <!-- qui andranno le caselle -->

@@ -18,10 +18,8 @@ Ci saranno quindi 10 caselle per ognuna delle 10 righe.
 //creo :
 //delle carìvariabili con il numero totale delle caselle, 
 //la stringa con i tag che comporanno la cella singola, 
-let totalCells = 100;
-//celle per riga da inserie (con la radice quadrata di totalCells ootengo il numero delle righe 100/10, 49/7, ecc)
-const cellsRow = Math.sqrt(totalCells);
-//console.log(cellsRow);
+
+
 
 //seleziono il container dal DOM
 const containerEl = document.querySelector('.container');
@@ -33,6 +31,12 @@ const buttonEl = document.querySelector('.btn');
 
 buttonEl.addEventListener('click', function () {
 
+    //recupero l'elemento dal dom
+    let totalCells = document.querySelector('.cells_number').value;
+    //let totalCells = 100;//cambiando il numero delle celle cambia la difficoltà 
+    //celle per riga da inserie (con la radice quadrata di totalCells ootengo il numero delle righe 100/10, 81/9, 49/7)
+    const cellsRow = Math.sqrt(totalCells);
+    //console.log(cellsRow);
 
     //loop per creare le celle che mi servono secondo il livello scelto(numero ri celle)
     for (i = 1; i <= totalCells; i++) {
