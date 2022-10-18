@@ -19,25 +19,22 @@ Ci saranno quindi 10 caselle per ognuna delle 10 righe.
 //delle carìvariabili con il numero totale delle caselle, 
 //la stringa con i tag che comporanno la cella singola, 
 let totalCells = 100;
+//celle per riga da inserie
+/* const cellsRow = Math.sqrt(totalCells);
+console.log(cellsRow); */
 
 //seleziono il container dal DOM
-let container = document.querySelector('.container');
-//seleziono le celle dal DOM
-
-
+const container = document.querySelector('.container');
 //ogni cella ha un numero progressivo da 1 a 100
-
-
-
 
 //al click deve essere creata la griglia
 //seleziono il bottone dal DOM
-let buttonEl = document.querySelector('.btn');
+const buttonEl = document.querySelector('.btn');
 
 buttonEl.addEventListener('click', function () {
 
 
-    //loop per creare le celle che mi servono(100)
+    //loop per creare le celle che mi servono secondo il livello scelto(100)
     for (i = 1; i <= totalCells; i++) {
         //let number = numberList[i];
         //console.log(i);
@@ -45,11 +42,11 @@ buttonEl.addEventListener('click', function () {
         cellGenerator(container);
 
     }
-    clickOnCell(totalCells)
-    let cellsList = document.querySelectorAll('.cell');
+
+    let cellsList = document.querySelector('.cell');
     cellsList.addEventListener('click', function () {
 
-
+        clickOnCell(cellsList)
         console.log('ho cliccato sulla cella');
     })
 
