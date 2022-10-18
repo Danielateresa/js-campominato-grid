@@ -39,22 +39,22 @@ buttonEl.addEventListener('click', function () {
         //let number = numberList[i];
         //console.log(i);
         //evoco la funzione con i segnaposto che poi passeranno le variabili nella funzione stessa
-        cellGenerator(container);
+        const cells = cellGenerator(container, i);
+        cells.addEventListener('click', function () {
 
+
+            console.log('ho cliccato sulla cella');
+        })
     }
 
-    let cellsList = document.querySelector('.cell');
-    cellsList.addEventListener('click', function () {
 
-        clickOnCell(cellsList)
-        console.log('ho cliccato sulla cella');
-    })
+
 
 
 })
 
 //la funzione ha il compito di creare la cella
-function cellGenerator(containerEl) {
+function cellGenerator(containerEl, i) {
 
 
     //aggiungo al DOM la stringa dellea cella
@@ -71,16 +71,3 @@ function cellGenerator(containerEl) {
     //la stringa era precedentemente così scirtta `<div class="cell">${i}</div>`; ma questo metodo non permette di asssegnare metodi
 }
 
-//creo il click sulla singola cella
-//click su cosa?
-function clickOnCell(totalCells) {
-    for (let i = 0; i < totalCells.length; i++) {
-        let cell = totalCells[i];
-        console.log(cell);
-
-
-    }
-}
-
-
-//con un ciclo for scorro le caselle per creare il click alla casella singola
