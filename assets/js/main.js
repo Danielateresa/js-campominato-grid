@@ -19,12 +19,12 @@ Ci saranno quindi 10 caselle per ognuna delle 10 righe.
 //delle carìvariabili con il numero totale delle caselle, 
 //la stringa con i tag che comporanno la cella singola, 
 let totalCells = 100;
-//celle per riga da inserie
-/* const cellsRow = Math.sqrt(totalCells);
-console.log(cellsRow); */
+//celle per riga da inserie (con la radice quadrata di totalCells ootengo il numero delle righe 100/10, 49/7, ecc)
+const cellsRow = Math.sqrt(totalCells);
+//console.log(cellsRow);
 
 //seleziono il container dal DOM
-const container = document.querySelector('.container');
+const containerEl = document.querySelector('.container');
 //ogni cella ha un numero progressivo da 1 a 100
 
 //al click deve essere creata la griglia
@@ -34,40 +34,40 @@ const buttonEl = document.querySelector('.btn');
 buttonEl.addEventListener('click', function () {
 
 
-    //loop per creare le celle che mi servono secondo il livello scelto(100)
+    //loop per creare le celle che mi servono secondo il livello scelto(numero ri celle)
     for (i = 1; i <= totalCells; i++) {
-        //let number = numberList[i];
-        //console.log(i);
-        //evoco la funzione con i segnaposto che poi passeranno le variabili nella funzione stessa
-        const cells = cellGenerator(container, i);
-        cells.addEventListener('click', function () {
+        //aggiungo al DOM la stringa dellea cella 
+        //la funzione ha il compito di creare la cella
+        const cellString = cellElementGenerator('div', 'cell', i, cellsRow);
+        //assegno la classe al div creato
+        cellString.classList.add('cell');
+        //console.log(cellString);
+        //aggiungo i numeri nelle celle
+        cellString.innerText = i;
+        //ci sono 10 caselle per 10 righe
+        cellString.style.width = `calc( 100% / ${cellsRow})`;
+        //inserisco le celle nel container
+        containerEl.insertAdjacentElement('beforeend', cellString);
 
-            //console.log('ho cliccato sulla cella');
-            cells.classList.toggle('clicked_cell');
+
+        //cliccando sulla singola cella questa cambia colore 
+        cellString.addEventListener('click', function () {
+            //this si riferisce a cellstring, ossia la cella
+            this.classList.toggle('clicked_cell');
+            //compare in console innertext che rappresenta il numero legato alla cella
+            console.log(this.innerText);
         })
     }
 
-
-
-
-
 })
 
-//la funzione ha il compito di creare la cella
-function cellGenerator(containerEl, i) {
-
-
-    //aggiungo al DOM la stringa dellea cella
-    const cellString = document.createElement('div');
-    //assegno la classe al div creato
-    cellString.classList.add('cell');
-    //aggiungo i numeri nelle celle
-    cellString.insertAdjacentHTML('beforeend', i);
-    //console.log(cellString);
-    //inserisco le celle nel container
-    containerEl.insertAdjacentElement('beforeend', cellString);
-    return cellString
-
-    //la stringa era precedentemente così scirtta `<div class="cell">${i}</div>`; ma questo metodo non permette di asssegnare metodi
+//funzione con i segnaposto che poi passeranno le variabili nella funzione stessa
+function cellElementGenerator(tagname, cssClass, n, cellsRow) {
+    const cellString = document.createElement(tagname);
+    cellString.className = cssClass;
+    cellString.innerText = n;
+    cellString.style.width = `calc( 100% / ${cellsRow})`;
+    return cellString;
 }
+
 
