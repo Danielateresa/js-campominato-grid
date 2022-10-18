@@ -42,8 +42,8 @@ buttonEl.addEventListener('click', function () {
         const cells = cellGenerator(container, i);
         cells.addEventListener('click', function () {
 
-
-            console.log('ho cliccato sulla cella');
+            //console.log('ho cliccato sulla cella');
+            cells.classList.toggle('clicked_cell');
         })
     }
 
